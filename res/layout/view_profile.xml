@@ -37,22 +37,206 @@
               android:src="@drawable/bell"  />       
     </LinearLayout>
     
-          <ImageView android:id="@+id/profile_photo"        
-            android:padding="30px" 
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+      <ImageView android:id="@+id/profile_photo"        
+            android:padding="20px" 
              android:layout_width="wrap_content" 
         android:layout_height="wrap_content" 
-        android:layout_marginLeft="30dp"
-       android:layout_gravity="center"
-              android:src="@drawable/bell"  />  
-              
-       <TextView android:id="@+id/mail"        
+        android:layout_marginLeft="20dp"
+       android:layout_gravity="center" />  
+       
+      <LinearLayout
+          android:orientation="vertical"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content">
+          
+       <TextView android:id="@+id/user_name_view"        
        android:padding="10px" 
        android:layout_width="wrap_content" 
         android:layout_height="wrap_content" 
         android:layout_marginLeft="10dp"
        android:layout_gravity="center"
-        android:text="Hello dude!" />
+        />
        
+       <TextView android:id="@+id/majors_view"        
+       android:padding="10px" 
+       android:layout_width="wrap_content" 
+        android:layout_height="wrap_content" 
+        android:layout_marginLeft="10dp"
+       android:layout_gravity="center"
+        />
+      </LinearLayout>
+    </LinearLayout>
+    
+<GridLayout
+    android:id="@+id/course_schedule_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal"
+    android:rowCount="6"
+    android:columnCount="12" >
+    <TextView
+        android:layout_row="0"
+        android:layout_column="0"
+        android:text="2010 Fall"
+        android:typeface="serif"
+        android:gravity="center_horizontal"
+        android:textSize="10dip"  />
+    <TextView
+        android:layout_row="0"
+        android:layout_column="1"
+        android:text="2011 Spring"
+        android:typeface="serif"
+        android:gravity="center_horizontal"
+        android:textSize="10dip"  />
+    <TextView
+        android:layout_row="0"
+        android:layout_column="2"
+        android:text="2011 Summer"
+        android:typeface="serif"
+        android:gravity="center_horizontal"
+        android:textSize="10dip"  />
+    <TextView
+        android:layout_row="0"
+        android:layout_column="3"
+        android:text="2011 Fall"
+        android:typeface="serif"
+        android:gravity="center_horizontal"
+        android:textSize="10dip"  />
+    <TextView
+        android:layout_row="0"
+        android:layout_column="4"
+        android:text="2011 Spring"
+        android:typeface="serif"
+        android:gravity="center_horizontal"
+        android:textSize="10dip"  />
+    <TextView
+        android:layout_row="0"
+        android:layout_column="5"
+        android:text="2011 Summer"
+        android:typeface="serif"
+        android:gravity="center_horizontal"
+        android:textSize="10dip"  />
+    <TextView
+        android:layout_row="0"
+        android:layout_column="6"
+        android:text="2012 Fall"
+        android:typeface="serif"
+        android:gravity="center_horizontal"
+        android:textSize="10dip"  />
+    <TextView
+        android:layout_row="0"
+        android:layout_column="7"
+        android:text="2012 Spring"
+        android:typeface="serif"
+        android:gravity="center_horizontal"
+        android:textSize="10dip"  />
+    <TextView
+        android:layout_row="0"
+        android:layout_column="8"
+        android:text="2012 Summer"
+        android:typeface="serif"
+        android:gravity="center_horizontal"
+        android:textSize="10dip"  />
+    <TextView
+        android:layout_row="0"
+        android:layout_column="9"
+        android:text="2012 Fall"
+        android:typeface="serif"
+        android:gravity="center_horizontal"
+        android:textSize="10dip"  />
+    <TextView
+        android:layout_row="0"
+        android:layout_column="10"
+        android:text="2013 Spring"
+        android:typeface="serif"
+        android:gravity="center_horizontal"
+        android:textSize="10dip"  />
+    <TextView
+        android:layout_row="0"
+        android:layout_column="11"
+        android:text="2013 Summer"
+        android:typeface="serif"
+        android:gravity="center_horizontal"
+        android:textSize="10dip"  />
+
+    <TextView
+        android:layout_row="1"
+        android:layout_column="0"
+        android:id="@+id/course_y1_s1_n1"
+        android:typeface="serif"
+        android:gravity="center_horizontal"
+        android:textSize="10dip"  />
+    <TextView
+        android:layout_row="2"
+        android:layout_column="0"
+        android:id="@+id/course_y1_s1_n2"
+        android:typeface="serif"
+        android:gravity="center_horizontal"
+        android:textSize="10dip"  />    
+    <TextView
+        android:layout_row="3"
+        android:layout_column="0"
+        android:id="@+id/course_y1_s1_n3"
+        android:typeface="serif"
+        android:gravity="center_horizontal"
+        android:textSize="10dip"  />
+    <TextView
+        android:layout_row="4"
+        android:layout_column="0"
+        android:id="@+id/course_y1_s1_n4"
+        android:typeface="serif"
+        android:gravity="center_horizontal"
+        android:textSize="10dip"  />
+    <TextView
+        android:layout_row="5"
+        android:layout_column="0"
+        android:id="@+id/course_y1_s1_n5"
+        android:typeface="serif"
+        android:gravity="center_horizontal"
+        android:textSize="10dip"  />
+    
+    <TextView
+        android:layout_row="1"
+        android:layout_column="1"
+        android:id="@+id/course_y1_s2_n1"
+        android:typeface="serif"
+        android:gravity="center_horizontal"
+        android:textSize="10dip"  />
+    <TextView
+        android:layout_row="2"
+        android:layout_column="1"
+        android:id="@+id/course_y1_s2_n2"
+        android:typeface="serif"
+        android:gravity="center_horizontal"
+        android:textSize="10dip"  />    
+    <TextView
+        android:layout_row="3"
+        android:layout_column="1"
+        android:id="@+id/course_y1_s2_n3"
+        android:typeface="serif"
+        android:gravity="center_horizontal"
+        android:textSize="10dip"  />
+    <TextView
+        android:layout_row="4"
+        android:layout_column="1"
+        android:id="@+id/course_y1_s2_n4"
+        android:typeface="serif"
+        android:gravity="center_horizontal"
+        android:textSize="10dip"  />
+    <TextView
+        android:layout_row="5"
+        android:layout_column="1"
+        android:id="@+id/course_y2_s2_n5"
+        android:typeface="serif"
+        android:gravity="center_horizontal"
+        android:textSize="10dip"  />      
+</GridLayout>
+      
+      
     <ListView android:id="@+id/list" android:layout_width="match_parent" android:layout_height="wrap_content"
         android:background="#ff00ff00" android:cacheColorHint="#ff00ff00">
       
