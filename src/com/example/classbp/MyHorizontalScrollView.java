@@ -66,6 +66,25 @@ public class MyHorizontalScrollView extends HorizontalScrollView {
         OnGlobalLayoutListener listener = new MyOnGlobalLayoutListener(parent, children, scrollToViewIdx, sizeCallback);
         getViewTreeObserver().addOnGlobalLayoutListener(listener);
     }
+    
+    public void changeViews(View old_app, View[] children, int scrollToViewIdx, SizeCallback sizeCallback) {
+        ViewGroup parent = (ViewGroup) getChildAt(0);
+        parent.removeViewsInLayout(0, children.length);
+        
+        //parent.removeView(old_app);
+        //children[1].setVisibility(View.INVISIBLE);
+        //parent.addView(children[1]);
+        // Add all the children, but add them invisible so that the layouts are calculated, but you can't see the Views
+        for (int i = 0; i < children.length; i++) {
+            children[i].setVisibility(View.INVISIBLE);
+           parent.addView(children[i]);
+        }
+
+        // Add a layout listener to this HSV
+        // This listener is responsible for arranging the child views.
+        OnGlobalLayoutListener listener = new MyOnGlobalLayoutListener(parent, children, scrollToViewIdx, sizeCallback);
+        getViewTreeObserver().addOnGlobalLayoutListener(listener);    	
+    }
 
     @Override
     public boolean onTouchEvent(MotionEvent ev) {

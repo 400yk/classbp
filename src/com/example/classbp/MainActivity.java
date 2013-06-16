@@ -11,8 +11,8 @@ import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.HorizontalScrollView;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 import com.example.classbp.MyHorizontalScrollView.SizeCallback;
@@ -29,7 +29,7 @@ public class MainActivity extends Activity {
 	    Handler handler = new Handler();
 	    int btnWidth;
 	  
-	    LinearLayout thumbnail;
+	    RelativeLayout profile;
 	
 
 	@Override
@@ -45,16 +45,8 @@ public class MainActivity extends Activity {
         ViewGroup tabBar = (ViewGroup) app.findViewById(R.id.tabBar);
 //app main lists
         ListView listView = (ListView) app.findViewById(R.id.list);
-        thumbnail = (LinearLayout) menu.findViewById(R.id.thumbnail);
-        
-        thumbnail.setOnClickListener(new View.OnClickListener() {
-			
-			@Override
-			public void onClick(View v) {
-				// TODO Goto main page
-				app = inflater.inflate(R.layout.horz_scroll_app, null);
-			}
-		});
+        profile = (RelativeLayout) menu.findViewById(R.id.app_profile);        
+
 		
         ViewUtils.initListView(this, listView, "Item ", 10, android.R.layout.simple_list_item_1);
 
@@ -73,6 +65,22 @@ public class MainActivity extends Activity {
         
         InputMethodManager imm=(InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
 		imm.hideSoftInputFromWindow(menu.getWindowToken(),0);
+		
+		profile.setOnClickListener(new View.OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				// TODO Goto main page
+				Toast.makeText(getBaseContext(), "Thumbnail", Toast.LENGTH_LONG).show();
+			
+				View app_new = inflater.inflate(R.layout.view_profile, null);
+				ViewGroup tabBar = (ViewGroup) app_new.findViewById(R.id.tabBar);
+				ImageView btnSlide = (ImageView) tabBar.findViewById(R.id.BtnSlide);
+				btnSlide.setOnClickListener(new ClickListenerForScrolling(scrollView, menu));
+				final View[] children = new View[] { menu, app_new };
+				scrollView.changeViews(app, children, 1, new SizeCallbackForMenu(btnSlide));
+			}
+		});
 	}
 
 	/**

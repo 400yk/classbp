@@ -47,19 +47,20 @@ public final class R {
     }
     public static final class id {
         public static final int BtnSlide=0x7f080003;
-        public static final int action_settings=0x7f08000e;
+        public static final int action_settings=0x7f08000f;
         public static final int app=0x7f080001;
-        public static final int artist=0x7f08000d;
-        public static final int duration=0x7f08000c;
+        public static final int app_profile=0x7f080009;
+        public static final int artist=0x7f08000e;
+        public static final int duration=0x7f08000d;
         public static final int friendsRequests=0x7f080004;
         public static final int list=0x7f080007;
-        public static final int list_image=0x7f08000a;
+        public static final int list_image=0x7f08000b;
         public static final int mail=0x7f080005;
         public static final int menu=0x7f080008;
         public static final int notify=0x7f080006;
         public static final int tabBar=0x7f080002;
-        public static final int thumbnail=0x7f080009;
-        public static final int title=0x7f08000b;
+        public static final int thumbnail=0x7f08000a;
+        public static final int title=0x7f08000c;
         public static final int top=0x7f080000;
     }
     public static final class layout {
@@ -67,7 +68,7 @@ public final class R {
         public static final int horz_scroll_app=0x7f030001;
         public static final int horz_scroll_menu=0x7f030002;
         public static final int menu_list_row=0x7f030003;
-        public static final int view_thumbnail=0x7f030004;
+        public static final int view_profile=0x7f030004;
     }
     public static final class menu {
         public static final int main=0x7f070000;
