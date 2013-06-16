@@ -1,12 +1,23 @@
 package com.example.classbp;
 
 import java.io.IOException;
+import java.io.InputStream;
+import java.util.ArrayList;
 
+import org.apache.http.HttpEntity;
+import org.apache.http.HttpResponse;
+import org.apache.http.NameValuePair;
+import org.apache.http.client.HttpClient;
+import org.apache.http.client.entity.UrlEncodedFormEntity;
+import org.apache.http.client.methods.HttpPost;
+import org.apache.http.impl.client.DefaultHttpClient;
+import org.apache.http.message.BasicNameValuePair;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
@@ -16,6 +27,7 @@ import android.view.WindowManager;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.HorizontalScrollView;
 import android.widget.ImageView;
@@ -27,10 +39,12 @@ import com.example.classbp.MyHorizontalScrollView.SizeCallback;
 //import android.view.Menu;
 //import android.view.Menu;
 
-public class MainActivity extends Activity {
+
+public class MainActivity extends Activity implements OnClickListener{
 	
 	  MyHorizontalScrollView scrollView;
 	    static View menu;
+	    
 	    View app;
 	    ImageView btnSlide;
 	    boolean menuOut = false;
@@ -40,14 +54,28 @@ public class MainActivity extends Activity {
 	    JsonReader profileReader;
 	    JSONObject json;
 	    RelativeLayout profile;
-	    boolean loggedIn = true;
+	    boolean loggedIn = false;
 	    
-
+	    //login stuff
+	    EditText uEmail, uPassword;
+	    Button loginButton;
+ //strings with user email and password
+	    String stringEmail, stringPassword;
+//create http client
+	    HttpClient httpClient;
+//user http Post
+	    HttpPost httpPost;
+//arraylist for post data
+	    ArrayList<NameValuePair> nameValuePairs;
+//http resonse for login
+	    HttpResponse response;
+	    HttpEntity entity;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		final LayoutInflater inflater = LayoutInflater.from(this);
 		if(loggedIn == true) {
+			
 	        scrollView = (MyHorizontalScrollView) inflater.inflate(R.layout.activity_main, null);
 	        
 			setContentView(scrollView);
@@ -102,7 +130,10 @@ public class MainActivity extends Activity {
 			});
 		
 		
-	 	} else {    	
+	 	} else {
+	 		
+	 		initLogin();
+	 		
 	 		EditText editEmail;  	
 		    setContentView(R.layout.login_page);
 		    getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
@@ -110,6 +141,94 @@ public class MainActivity extends Activity {
 		         
 	 	}
 	}
+//new login man
+	private void initLogin() {
+		// TODO Auto-generated method stub
+		uEmail= (EditText) findViewById(R.id.login_email);
+		uPassword = (EditText) findViewById(R.id.login_password);
+		loginButton = (Button) findViewById(R.id.loginButton);
+	
+//now set listeners		
+		loginButton.setOnClickListener(this);
+		
+	}
+	
+//for loging in man
+		@Override
+		public void onClick(View v) {
+			// new http
+			httpClient = new DefaultHttpClient();
+			
+		//	create neew http
+			httpPost= new HttpPost("http://mobile.classblueprint.com/login/run");
+			
+	//asign the text to string	
+			
+      stringEmail = uEmail.getText().toString();
+      stringPassword = uPassword.getText().toString();
+    
+      
+      //try catch
+      
+      		try {
+      			//create new array
+      			nameValuePairs = new ArrayList<NameValuePair>();
+      			
+      		  //place in arraylist
+      	      nameValuePairs.add(new BasicNameValuePair("email", stringEmail));
+      	      nameValuePairs.add(new BasicNameValuePair("password", stringPassword));
+      			
+      			httpPost.setEntity(new UrlEncodedFormEntity(nameValuePairs));
+      			//assign 
+      			response=httpClient.execute(httpPost);
+      			//check status code 200
+      			if(response.getStatusLine().getStatusCode()==200){
+      				
+      				//assign respoce entity 
+      				entity = response.getEntity();
+      				
+      				//check if entity is not null
+      				if(entity != null){
+      					
+      					//create new input stream with recieve data
+      					InputStream instream = entity.getContent();
+      					
+      					//create new json object
+      					JSONObject jsonResponse = new JSONObject(convertStreamToString(instream));
+      					
+      					//asign json response to lpcal strings
+      					String reEmail = jsonResponse.getString("email");//mysql table 
+      					String rePassword = jsonResponse.getString("password");
+      					
+      					//validate login
+      					if(uEmail.equals(reEmail) && uPassword.equals(rePassword)){
+      						//create new shared prefs
+      						SharedPreferences sp = getSharedPreferences("logindetails", 0);
+      						//edit
+      						SharedPreferences.Editor spedit = sp.edit();
+      						
+      						//put the login
+      						spedit.putString("email", reEmail);
+      						spedit.putString("pass", rePassword);
+      						//clost editor
+      						spedit.commit();
+      						//toast login success
+      						Toast.makeText(getBaseContext(), "Success!", Toast.LENGTH_SHORT);
+      						loggedIn = true;
+      						
+      					}else{
+      						//display a toast to say fail
+      						Toast.makeText(getBaseContext(),  "invalid", Toast.LENGTH_SHORT).show();
+      					}
+      				}
+      			}
+      		}catch(Exception e){
+      			
+      			e.printStackTrace();
+      			//display connection error
+      			Toast.makeText(getBaseContext(), "connection lost", Toast.LENGTH_SHORT).show();
+      		}
+		}
 
 	public class Reads extends AsyncTask<String, Integer, String> {
 		
@@ -223,6 +342,8 @@ public class MainActivity extends Activity {
             }
         }
     }
+
+   
     
     
 }
