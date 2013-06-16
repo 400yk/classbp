@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <com.example.classbp.MyHorizontalScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="fill_parent" android:layout_height="fill_parent" android:background="#00ffffff" android:padding="0px"
+    android:layout_width="fill_parent" android:layout_height="fill_parent" android:background="@drawable/gradient_bg_hover" android:padding="0px"
     android:layout_margin="0px" android:fadingEdge="none" android:fadingEdgeLength="0px" android:scrollbars="none" android:id="@+id/top" >
     <LinearLayout android:layout_height="fill_parent" android:layout_width="fill_parent"
-        android:orientation="horizontal" android:background="#ffffffff" android:padding="0px" android:layout_margin="0px">
+        android:orientation="horizontal" android:background="@drawable/gradient_bg_hover" android:padding="0px" android:layout_margin="0px">
      <requestFocus />
     </LinearLayout>
 </com.example.classbp.MyHorizontalScrollView>

@@ -1,24 +1,65 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/relLayout"
     android:layout_width="match_parent"
-    android:layout_height="match_parent" 
-    android:orientation="horizontal"
-    android:background="@drawable/berk2">
+    android:layout_height="match_parent"
+    android:background="@drawable/gradient_bg_hover"
+    android:orientation="vertical"
+     >
+
+   
 
     <EditText
         android:id="@+id/login_email"
-        android:layout_width="400dp"
+        android:layout_width="600dp"
         android:layout_height="wrap_content"
-        android:inputType="textEmailAddress" >
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="232dp"
+        android:ems="10"
+        android:hint="Email"
+        android:inputType="textEmailAddress" />
+     <EditText
+        android:id="@+id/login_password"
+        android:layout_width="600dp"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/login_email"
+        android:layout_below="@+id/login_email"
+        android:ems="10"
+        android:hint="Password"
+        android:inputType="textPassword" >
 
         <requestFocus />
     </EditText>
 
-    <EditText
-        android:id="@+id/editText1"
-        android:layout_width="400dp"
+    <Button
+        android:id="@+id/loginButton"
+        android:layout_width="600dp"
         android:layout_height="wrap_content"
-        android:inputType="textPassword" />
+        android:layout_alignLeft="@+id/login_password"
+        android:layout_below="@+id/login_password"
+        android:text="Login" />
 
-</LinearLayout>
+    <TextView
+        android:id="@+id/registerman"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignRight="@+id/textView1"
+        android:layout_marginBottom="56dp"
+        android:layout_marginRight="96dp"
+        android:text="Sign Up for Class Blueprint" 
+        />
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/login_email"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="68dp"
+        android:text="Class Blueprint"
+        android:textAppearance="@style/AppTheme"
+        android:textSize="45dp" />
+
+</RelativeLayout>

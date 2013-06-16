@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/gradient_bg_hover" >
+    
+<LinearLayout android:id="@+id/tabBar" android:layout_width="fill_parent" android:layout_height="wrap_content"
+        android:orientation="horizontal" android:background="@drawable/gradient_bg">
+
+       <ImageView android:id="@+id/BtnSlide" 
+            android:layout_width="wrap_content" 
+            android:layout_height="wrap_content"
+            android:padding="10px"          
+            android:layout_margin="0px" 
+            android:src="@drawable/menu_bar"  />
+       
+        <ImageView android:id="@+id/friendsRequests" 
+            android:padding="10px" 
+             android:layout_width="wrap_content" 
+        android:layout_height="wrap_content" 
+        android:layout_marginLeft="490dp"
+       android:layout_gravity="center"
+              android:src="@drawable/friends"  />
+         
+      <ImageView android:id="@+id/mail"        
+            android:padding="10px" 
+             android:layout_width="wrap_content" 
+        android:layout_height="wrap_content" 
+        android:layout_marginLeft="10dp"
+       android:layout_gravity="center"
+              android:src="@drawable/mail"  />
+      
+      <ImageView android:id="@+id/notify"        
+            android:padding="10px" 
+             android:layout_width="wrap_content" 
+        android:layout_height="wrap_content" 
+        android:layout_marginLeft="10dp"
+       android:layout_gravity="center"
+              android:src="@drawable/bell"  />       
+    </LinearLayout>
+    
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="81dp"
+        android:text="191 Entrepreneurship &amp; Technology"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textSize="50dp" />
+
+    <ImageView
+        android:id="@+id/ImageView01"
+        android:layout_width="100dp"
+        android:layout_height="70dp"
+        android:layout_above="@+id/imageView1"
+        android:layout_alignLeft="@+id/imageView1"
+        android:layout_marginBottom="26dp"
+        android:src="@drawable/profile" />
+
+    <ImageView
+        android:id="@+id/imageView1"
+        android:layout_width="100dp"
+        android:layout_height="70dp"
+        android:layout_alignLeft="@+id/textView1"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="95dp"
+        android:src="@drawable/profile" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/textView1"
+        android:layout_below="@+id/textView1"
+        android:layout_marginTop="74dp"
+        android:text="Skills: "
+        android:textColor="@style/AppBaseTheme"
+        android:textSize="30dp" />
+
+    <Button
+        android:id="@+id/button1"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/textView2"
+        android:layout_toRightOf="@+id/ImageView01"
+        android:text="Entrepreneurship" />
+
+    <Button
+        android:id="@+id/Button01"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/button1"
+        android:layout_alignBottom="@+id/button1"
+        android:layout_marginLeft="44dp"
+        android:layout_toRightOf="@+id/button1"
+        android:text="Leadership" />
+
+    <Button
+        android:id="@+id/Button02"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/Button01"
+        android:layout_alignBottom="@+id/Button01"
+        android:layout_marginLeft="35dp"
+        android:layout_toRightOf="@+id/Button01"
+        android:text="Marketing" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/button1"
+        android:layout_alignTop="@+id/ImageView01"
+        android:layout_marginLeft="43dp"
+        android:text="This Class is Great!"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="#000000" />
+
+    <TextView
+        android:id="@+id/TextView01"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/textView2"
+        android:layout_below="@+id/textView2"
+        android:layout_marginTop="29dp"
+        android:text="Jobs Related: "
+        android:textColor="@style/AppBaseTheme"
+        android:textSize="30dp" />
+
+    <Button
+        android:id="@+id/Button03"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/TextView01"
+        android:layout_alignBottom="@+id/TextView01"
+        android:layout_toRightOf="@+id/button1"
+        android:text="Marketing Manager Intel" />
+
+    <Button
+        android:id="@+id/Button04"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/Button03"
+        android:layout_alignBottom="@+id/Button03"
+        android:layout_marginLeft="36dp"
+        android:layout_toRightOf="@+id/Button03"
+        android:text="Product Manager Ebay" />
+
+    <TextView
+        android:id="@+id/TextView02"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/ImageView01"
+        android:layout_toLeftOf="@+id/Button02"
+        android:text="The Professor so sexy."
+        android:textAppearance="?android:attr/textAppearanceLarge"
+         android:textColor="#000000" />
+
+    <TextView
+        android:id="@+id/TextView03"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/TextView01"
+        android:layout_centerVertical="true"
+        android:text="Rating"
+        android:textColor="@style/AppBaseTheme"
+        android:textSize="30dp" />
+
+    <RatingBar
+        android:id="@+id/ratingBar1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/TextView02"
+        android:layout_centerVertical="true" />
+
+</RelativeLayout>

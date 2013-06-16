@@ -73,6 +73,7 @@
     
     
     <RelativeLayout 
+     android:id="@+id/menu_jobs"
      android:layout_width="fill_parent"
     android:layout_height="wrap_content"
     android:background="@drawable/list_selector"
@@ -133,70 +134,6 @@
 </RelativeLayout>
     
     <!--ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss -->
- <!-- news feed -->
-    
-    
-    <RelativeLayout 
-     android:layout_width="fill_parent"
-    android:layout_height="wrap_content"
-    android:background="@drawable/list_selector"
-    android:orientation="horizontal"
-    android:padding="5dip" >
- 
-    <!--  ListRow Left sied Thumbnail image -->
-    <LinearLayout android:id="@+id/thumbnail"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:padding="3dip"
-        android:layout_alignParentLeft="true"
-        android:background="@drawable/image_bg"
-        android:layout_marginRight="5dip">
- 
-        <ImageView
-            android:id="@+id/list_image"
-            android:layout_width="50dip"
-            android:layout_height="50dip"
-            android:src="@drawable/news"/>
- 
-    </LinearLayout>
- 
-    <!-- Title Of Song-->
-    <TextView
-        android:id="@+id/title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerVertical="true"
-        android:layout_toRightOf="@+id/thumbnail"
-        android:text="News Feed"
-        android:textColor="#576b95"
-        android:typeface="sans"
-        android:textSize="25dip"
-        android:textStyle="bold"/>
- 
-    <!-- Artist Name -->
-    
-    <!-- Rightend Duration -->
-    <TextView
-        android:id="@+id/duration"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:layout_alignTop="@id/title"
-        android:gravity="right"
-        
-        android:layout_marginRight="5dip"
-        android:textSize="10dip"
-        android:textColor="#10bcc9"
-        android:textStyle="bold"/>
- 
-     <!-- Rightend Arrow -->
-     <ImageView android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/arrow"
-        android:layout_alignParentRight="true"
-        android:layout_centerVertical="true"/>
- 
-</RelativeLayout>
 
      
     <!--ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss -->
@@ -204,6 +141,7 @@
     
     
     <RelativeLayout 
+        android:id="@+id/menu_msg"
      android:layout_width="fill_parent"
     android:layout_height="wrap_content"
     android:background="@drawable/list_selector"
@@ -390,10 +328,11 @@
 </RelativeLayout>
 
 <!--ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss -->
- <!-- uploads-->
+ <!-- Donate-->
     
     
-    <RelativeLayout 
+    <RelativeLayout
+     android:id="@+id/menu_donate" 
      android:layout_width="fill_parent"
     android:layout_height="wrap_content"
     android:background="@drawable/list_selector"
@@ -413,7 +352,7 @@
             android:id="@+id/list_image"
             android:layout_width="50dip"
             android:layout_height="50dip"
-            android:src="@drawable/uploads"/>
+            android:src="@drawable/donation"/>
  
     </LinearLayout>
  
@@ -424,7 +363,7 @@
         android:layout_height="wrap_content"
         android:layout_centerVertical="true"
         android:layout_toRightOf="@+id/thumbnail"
-        android:text="Courses"
+        android:text="Donate!"
         android:textColor="#576b95"
         android:typeface="sans"
         android:textSize="25dip"
@@ -508,6 +447,74 @@
         android:text="" />
  
     
+ 
+     <!-- Rightend Arrow -->
+     <ImageView android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/arrow"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"/>
+ 
+</RelativeLayout>
+
+
+
+<!-- Home -->
+    
+    
+    <RelativeLayout 
+     android:id="@+id/menu_home"
+     android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/list_selector"
+    android:orientation="horizontal"
+    android:padding="5dip" >
+ 
+    <!--  ListRow Left sied Thumbnail image -->
+    <LinearLayout android:id="@+id/thumbnail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="3dip"
+        android:layout_alignParentLeft="true"
+        android:background="@drawable/image_bg"
+        android:layout_marginRight="5dip">
+ 
+        <ImageView
+            android:id="@+id/list_image"
+            android:layout_width="50dip"
+            android:layout_height="50dip"
+            android:src="@drawable/news"/>
+ 
+    </LinearLayout>
+ 
+    <!-- Title Of Song-->
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_toRightOf="@+id/thumbnail"
+        android:text="Home"
+        android:textColor="#576b95"
+        android:typeface="sans"
+        android:textSize="25dip"
+        android:textStyle="bold"/>
+ 
+    <!-- Artist Name -->
+    
+    <!-- Rightend Duration -->
+    <TextView
+        android:id="@+id/duration"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignTop="@id/title"
+        android:gravity="right"
+        
+        android:layout_marginRight="5dip"
+        android:textSize="10dip"
+        android:textColor="#10bcc9"
+        android:textStyle="bold"/>
  
      <!-- Rightend Arrow -->
      <ImageView android:layout_width="wrap_content"

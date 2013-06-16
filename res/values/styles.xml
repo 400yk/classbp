@@ -17,4 +17,12 @@
         <!-- All customizations that are NOT specific to a particular API-level can go here. -->
     </style>
 
+
+	<style name="App_textViewStyle" parent="@android:style/Widget.TextView">
+	    <item name="android:background">@drawable/color_background</item>
+	    <item name="android:textColor">#808080</item>
+	    <item name="android:layout_height">25dip</item>
+	    <item name="android:layout_width">35dip</item>
+	</style>
+
 </resources>

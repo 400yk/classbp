@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+     android:background="@drawable/gradient_bg_hover" >
+<LinearLayout android:id="@+id/tabBar" android:layout_width="fill_parent" android:layout_height="wrap_content"
+        android:orientation="horizontal" android:background="@drawable/gradient_bg">
+
+       <ImageView android:id="@+id/BtnSlide" 
+            android:layout_width="wrap_content" 
+            android:layout_height="wrap_content"
+            android:padding="10px"          
+            android:layout_margin="0px" 
+            android:src="@drawable/menu_bar"  />
+       
+        <ImageView android:id="@+id/friendsRequests" 
+            android:padding="10px" 
+             android:layout_width="wrap_content" 
+        android:layout_height="wrap_content" 
+        android:layout_marginLeft="490dp"
+       android:layout_gravity="center"
+              android:src="@drawable/friends"  />
+         
+      <ImageView android:id="@+id/mail"        
+            android:padding="10px" 
+             android:layout_width="wrap_content" 
+        android:layout_height="wrap_content" 
+        android:layout_marginLeft="10dp"
+       android:layout_gravity="center"
+              android:src="@drawable/mail"  />
+      
+      <ImageView android:id="@+id/notify"        
+            android:padding="10px" 
+             android:layout_width="wrap_content" 
+        android:layout_height="wrap_content" 
+        android:layout_marginLeft="10dp"
+       android:layout_gravity="center"
+              android:src="@drawable/bell"  />       
+    </LinearLayout>
+    <Button
+        android:id="@+id/Button01"
+        android:layout_width="500dp"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/button1"
+        android:layout_alignRight="@+id/button1"
+        android:layout_below="@+id/button1"
+        android:layout_marginTop="33dp"
+        android:onClick="soft_eng"
+        android:text="2. Software engineer at Paypal" />
+
+    <Button
+        android:id="@+id/button1"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/textView1"
+        android:layout_marginTop="63dp"
+        android:text="1. Entrepreneur in tech" />
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="463dp"
+        android:layout_marginTop="82dp"
+        android:text="Jobs and Skills"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textSize="40dp" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/textView1"
+        android:layout_marginLeft="86dp"
+        android:layout_marginTop="25dp"
+        android:text="Dream Jobs"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <Button
+        android:id="@+id/Button02"
+        android:layout_width="500dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignRight="@+id/Button01"
+        android:layout_centerVertical="true"
+        android:text="3. Industrial Engineer" />
+
+    <Button
+        android:id="@+id/Button03"
+        android:layout_width="500dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignRight="@+id/Button02"
+        android:layout_below="@+id/Button02"
+        android:layout_marginTop="44dp"
+        android:text="4. Teacher" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/textView2"
+        android:layout_alignBottom="@+id/textView2"
+        android:layout_alignLeft="@+id/textView1"
+        android:text="Skills You Need"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <Button
+        android:id="@+id/Button04"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/Button01"
+        android:layout_alignRight="@+id/textView1"
+        android:layout_marginRight="39dp"
+        android:text="Leadership, Financial, Business Management, Marketing" />
+
+    <Button
+        android:id="@+id/Button05"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/Button01"
+        android:layout_alignBottom="@+id/Button01"
+        android:layout_alignLeft="@+id/Button04"
+        android:text="Java in Unix/Linux, Spring SVC, OOP, Test driven development" />
+
+    <Button
+        android:id="@+id/Button06"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/Button03"
+        android:layout_alignLeft="@+id/Button05"
+        android:text="Statistical Analysis, Data Mining, Logistical Optimization" />
+
+    <Button
+        android:id="@+id/Button07"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/Button03"
+        android:layout_alignLeft="@+id/Button06"
+        android:text="Educational Development, Child Psychology" />
+
+    <TextView
+        android:id="@+id/TextView01"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/textView3"
+        android:layout_alignBottom="@+id/textView3"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="168dp"
+        android:text="Courses to Take"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        />
+
+    <Button
+        android:id="@+id/Button08"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignTop="@+id/button1"
+        android:layout_marginRight="73dp"
+        android:text="191 Technology &amp; Leadership, 190 Entrepreneurship, Marketing 101" />
+
+    <Button
+        android:id="@+id/Button09"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/Button05"
+        android:layout_alignBottom="@+id/Button05"
+        android:layout_alignLeft="@+id/Button08"
+        android:text="191 Technology &amp; Leadership, 190 Entrepreneurship, Marketing 101" />
+
+    <Button
+        android:id="@+id/Button10"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/Button02"
+        android:layout_alignBottom="@+id/Button02"
+        android:layout_alignLeft="@+id/Button09"
+        android:text="191 Technology &amp; Leadership, 190 Entrepreneurship, Marketing 101" />
+
+    <Button
+        android:id="@+id/Button11"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/Button07"
+        android:layout_alignLeft="@+id/Button10"
+        android:text="191 Technology &amp; Leadership, 190 Entrepreneurship, Marketing 101" />
+
+
+</RelativeLayout>

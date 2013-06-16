@@ -13,7 +13,8 @@
         android:layout_height="wrap_content" 
         android:layout_marginLeft="10dp"
        android:layout_gravity="center"
-              android:text="Hello dude!" />
+              android:text="Hello dude!"
+               />
       
 
     </LinearLayout>
