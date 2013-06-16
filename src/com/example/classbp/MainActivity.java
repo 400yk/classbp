@@ -1,7 +1,13 @@
 package com.example.classbp;
 
+import java.io.IOException;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import android.app.Activity;
 import android.content.Context;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.LayoutInflater;
@@ -28,7 +34,9 @@ public class MainActivity extends Activity {
 	    boolean menuOut = false;
 	    Handler handler = new Handler();
 	    int btnWidth;
-	  
+	    //DefaultHttpClient client;
+	    JsonReader profileReader;
+	    JSONObject json;
 	    RelativeLayout profile;
 	
 
@@ -39,6 +47,11 @@ public class MainActivity extends Activity {
         scrollView = (MyHorizontalScrollView) inflater.inflate(R.layout.activity_main, null);
         
 		setContentView(scrollView);
+		
+		// Server connection setup
+		//client = new DefaultHttpClient();
+		profileReader = new JsonReader();
+		new Reads().execute("index");
 		
 		menu = inflater.inflate(R.layout.horz_scroll_menu, null);
         app = inflater.inflate(R.layout.horz_scroll_app, null);
@@ -79,10 +92,43 @@ public class MainActivity extends Activity {
 				btnSlide.setOnClickListener(new ClickListenerForScrolling(scrollView, menu));
 				final View[] children = new View[] { menu, app_new };
 				scrollView.changeViews(app, children, 1, new SizeCallbackForMenu(btnSlide));
+				
+				// Get JSON object from server
 			}
 		});
 	}
 
+	public class Reads extends AsyncTask<String, Integer, String> {
+		
+		@Override
+		protected String doInBackground(String...params) {
+			try {
+				json = JsonReader.readJsonFromUrl("http://mobile.classblueprint.com/user/user_profile/1");
+				return json.getString(params[0]);
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (JSONException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			return null;
+		}
+		
+		@Override
+		protected void onPostExecute(String result) {
+			//httpStuff.setText(result);
+			super.onPostExecute(result);
+			try {
+				Toast.makeText(getApplicationContext(), json.get("username").toString(), Toast.LENGTH_LONG).show();
+			} catch (JSONException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+	}
+
+	
 	/**
      * Helper for examples with a HSV that should be scrolled by a menu View's width.
      */
