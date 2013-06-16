@@ -12,9 +12,11 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.WindowManager;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
+import android.widget.EditText;
 import android.widget.HorizontalScrollView;
 import android.widget.ImageView;
 import android.widget.ListView;
@@ -38,64 +40,75 @@ public class MainActivity extends Activity {
 	    JsonReader profileReader;
 	    JSONObject json;
 	    RelativeLayout profile;
-	
+	    boolean loggedIn = true;
+	    
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		final LayoutInflater inflater = LayoutInflater.from(this);
-        scrollView = (MyHorizontalScrollView) inflater.inflate(R.layout.activity_main, null);
-        
-		setContentView(scrollView);
-		
-		// Server connection setup
-		//client = new DefaultHttpClient();
-		profileReader = new JsonReader();
-		new Reads().execute("index");
-		
-		menu = inflater.inflate(R.layout.horz_scroll_menu, null);
-        app = inflater.inflate(R.layout.horz_scroll_app, null);
-        ViewGroup tabBar = (ViewGroup) app.findViewById(R.id.tabBar);
-//app main lists
-        ListView listView = (ListView) app.findViewById(R.id.list);
-        profile = (RelativeLayout) menu.findViewById(R.id.app_profile);        
-
-		
-        ViewUtils.initListView(this, listView, "Item ", 10, android.R.layout.simple_list_item_1);
-
-   //menu list
-   /*     listView = (ListView) menu.findViewById(R.id.list);
-        ViewUtils.menuListView(this, listView, "Menu ", 9, android.R.layout.simple_list_item_1);
-*/
-        btnSlide = (ImageView) tabBar.findViewById(R.id.BtnSlide);
-        btnSlide.setOnClickListener(new ClickListenerForScrolling(scrollView, menu));
-
-        final View[] children = new View[] { menu, app };
-
-        // Scroll to app (view[1]) when layout finished.
-        int scrollToViewIdx = 1;
-        scrollView.initViews(children, scrollToViewIdx, new SizeCallbackForMenu(btnSlide));
-        
-        InputMethodManager imm=(InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
-		imm.hideSoftInputFromWindow(menu.getWindowToken(),0);
-		
-		profile.setOnClickListener(new View.OnClickListener() {
+		if(loggedIn == true) {
+	        scrollView = (MyHorizontalScrollView) inflater.inflate(R.layout.activity_main, null);
+	        
+			setContentView(scrollView);
 			
-			@Override
-			public void onClick(View v) {
-				// TODO Goto main page
-				Toast.makeText(getBaseContext(), "Thumbnail", Toast.LENGTH_LONG).show();
+			// Server connection setup
+			//client = new DefaultHttpClient();
+			profileReader = new JsonReader();
+			new Reads().execute("index");
 			
-				View app_new = inflater.inflate(R.layout.view_profile, null);
-				ViewGroup tabBar = (ViewGroup) app_new.findViewById(R.id.tabBar);
-				ImageView btnSlide = (ImageView) tabBar.findViewById(R.id.BtnSlide);
-				btnSlide.setOnClickListener(new ClickListenerForScrolling(scrollView, menu));
-				final View[] children = new View[] { menu, app_new };
-				scrollView.changeViews(app, children, 1, new SizeCallbackForMenu(btnSlide));
+			menu = inflater.inflate(R.layout.horz_scroll_menu, null);
+	        app = inflater.inflate(R.layout.horz_scroll_app, null);
+	        ViewGroup tabBar = (ViewGroup) app.findViewById(R.id.tabBar);
+	//app main lists
+	        ListView listView = (ListView) app.findViewById(R.id.list);
+	        profile = (RelativeLayout) menu.findViewById(R.id.app_profile);        
+	
+			
+	        ViewUtils.initListView(this, listView, "Item ", 10, android.R.layout.simple_list_item_1);
+	
+	   //menu list
+	   /*     listView = (ListView) menu.findViewById(R.id.list);
+	        ViewUtils.menuListView(this, listView, "Menu ", 9, android.R.layout.simple_list_item_1);
+	*/
+	        btnSlide = (ImageView) tabBar.findViewById(R.id.BtnSlide);
+	        btnSlide.setOnClickListener(new ClickListenerForScrolling(scrollView, menu));
+	
+	        final View[] children = new View[] { menu, app };
+	
+	        // Scroll to app (view[1]) when layout finished.
+	        int scrollToViewIdx = 1;
+	        scrollView.initViews(children, scrollToViewIdx, new SizeCallbackForMenu(btnSlide));
+	        
+	        InputMethodManager imm=(InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
+			imm.hideSoftInputFromWindow(menu.getWindowToken(),0);
+			
+			profile.setOnClickListener(new View.OnClickListener() {
 				
-				// Get JSON object from server
-			}
-		});
+				@Override
+				public void onClick(View v) {
+					// TODO Goto main page
+					Toast.makeText(getBaseContext(), "Thumbnail", Toast.LENGTH_LONG).show();
+				
+					View app_new = inflater.inflate(R.layout.view_profile, null);
+					ViewGroup tabBar = (ViewGroup) app_new.findViewById(R.id.tabBar);
+					ImageView btnSlide = (ImageView) tabBar.findViewById(R.id.BtnSlide);
+					btnSlide.setOnClickListener(new ClickListenerForScrolling(scrollView, menu));
+					final View[] children = new View[] { menu, app_new };
+					scrollView.changeViews(app, children, 1, new SizeCallbackForMenu(btnSlide));
+					
+					// Get JSON object from server
+				}
+			});
+		
+		
+	 	} else {    	
+	 		EditText editEmail;  	
+		    setContentView(R.layout.login_page);
+		    getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
+
+		         
+	 	}
 	}
 
 	public class Reads extends AsyncTask<String, Integer, String> {
